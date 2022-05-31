@@ -10,8 +10,6 @@ st.title("Number Classifier")
 if 'model' not in st.session_state:
     st.session_state['model'] = load_model("./number_classifier/2_Layer_Conv_15_Epoch")
 
-model = st.session_state["model"]
-
 col_1, col_2 = st.columns(2)
 # Specify canvas parameters in application
 # Create a canvas component
@@ -39,7 +37,7 @@ else:
     a = np.array(a).mean(axis=2).astype(np.uint8)
     arr = a.reshape(1, 28, 28, 1) / 255
     
-    p = model.predict(arr, verbose=0)
+    p = st.session_state["model"].predict(arr, verbose=0)
     
     with col_2:
         st.bar_chart(p.T)

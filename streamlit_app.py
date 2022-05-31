@@ -9,7 +9,7 @@ st.title("Number Classifier")
 
 # Initialization
 if 'model' not in st.session_state:
-    st.session_state['model'] = load_model("2_Layer_Conv_15_Epoch")
+    st.session_state['model'] = load_model("number_classifier/2_Layer_Conv_15_Epoch")
 
 col_1, col_2 = st.columns(2)
 # Specify canvas parameters in application
